@@ -12,9 +12,10 @@
     <title>Jetts New Zealand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/Users/KhalidsMac/Desktop/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/Users/KhalidsMac/Jetts Fitness Internship/Jetts-project/javascript/formvalidation.js"></script>
 </head>
 
 <body>
@@ -35,9 +36,9 @@
             <div class="modal-body">
 				<form>
 					<div class="form-group">
-						<input type="text" name="user" placeholder="Enter Username">
-						<input type="password" name="pass" placeholder="Enter Password">
-						<input type="submit" name="login" class="btn" value="Login">
+						<input type="email" name="email" placeholder="Email" class="form-control">
+						<input type="password" name="pass" placeholder="Password" class="form-control">
+						<input type="submit" name="login" class="btn" value="Login" >
 					</div>
                 </form>
 				<div class="login-help">
@@ -47,6 +48,7 @@
             </div>
         </div>
     </div>
+    
     <!-- forgotten password modal-->
     <div class="modal fade" id="forgottenPassword">
         <div class="modal-dialog">
