@@ -8,8 +8,8 @@
     background-color: rgb(222,0,39);
 
 }
-#emailLogin{
-    margin-bottom: 2px;
+#userInput{
+    margin-bottom: 5px;
 }
 </style>
     <title>Jetts New Zealand</title>
@@ -34,13 +34,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">X</button>
-                    <h3>Login</h3>
+                    <h2>Login</h2>
                 </div>
             <div class="modal-body">
 				<form>
 					<div class="form-group" id="loginFormGroup">
-						<input type="email" id="emailLogin" name="email" placeholder="Email" class="form-control">
-						<input type="password" name="pass" placeholder="Password" class="form-control">
+						<input type="email" id = "userInput" "name="email" placeholder="Email" class="form-control">
+						<input type="password" id = "userInput"  name="pass" placeholder="Password" class="form-control">
 						<input type="submit" name="login" class="btn" value="Login" >
 					</div>
                 </form>
@@ -49,9 +49,63 @@
                     <a href="#" data-target ="#forgottenPassword" data-toggle="modal">Forgot Password</a>
                 </div>
             </div>
-        </div>
-    </div>
-    
+			</div>
+		</div>
+	</div>
+		
+     <!-- register user modal-->
+    <div class="modal fade" id="registerButtonModal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h2>Register</h2>
+                </div>
+            <div class="modal-body">
+				<form>
+					<div class="form-group" id="registerFormGroup">
+						<select class="form-control" id="userInput" name="Club">
+							<option value="placeHolder"> Select a club </option><option value="1092">Jetts Fitness Albany</option><option value="4451">Jetts Fitness Auckland Airport</option><option value="2671">Jetts Fitness Auckland CBD</option><option value="7651">Jetts Fitness Bethlehem</option><option value="2631">Jetts Fitness Birkenhead</option><option value="5264">Jetts Fitness Botany</option><option value="6956">Jetts Fitness Botany Junction</option><option value="2228">Jetts Fitness Browns Bay</option><option value="9842">Jetts Fitness Chartwell</option><option value="5616">Jetts Fitness Dunedin</option><option value="3231">Jetts Fitness Eden Terrace</option><option value="8574">Jetts Fitness Gisborne</option><option value="2501">Jetts Fitness Glenfield</option><option value="2857">Jetts Fitness Grey Lynn</option><option value="9256">Jetts Fitness Hamilton East</option><option value="46214">Jetts Fitness Hamilton, The Base</option><option value="9840">Jetts Fitness Hastings</option><option value="6957">Jetts Fitness Henderson</option><option value="5620">Jetts Fitness Highbrook</option><option value="3608">Jetts Fitness Highland Park</option><option value="3904">Jetts Fitness Howick</option><option value="5268">Jetts Fitness Johnsonville</option><option value="3379">Jetts Fitness Lower Hutt</option><option value="2207">Jetts Fitness Mairangi Bay</option><option value="7292">Jetts Fitness Manukau</option><option value="6587">Jetts Fitness Manurewa</option><option value="63768">Jetts Fitness Millwater</option><option value="4016">Jetts Fitness Miramar</option><option value="187">Jetts Fitness Mt Roskill</option><option value="5046">Jetts Fitness Mt Wellington</option><option value="10159">Jetts Fitness Napier</option><option value="3229">Jetts Fitness New Lynn</option><option value="10154">Jetts Fitness New Plymouth</option><option value="5047">Jetts Fitness Newtown</option><option value="10697">Jetts Fitness Northlands</option><option value="131594">Jetts Fitness Otahuhu</option><option value="10696">Jetts Fitness Otara</option><option value="2943">Jetts Fitness Palmerston North</option><option value="3376">Jetts Fitness Papakura</option><option value="7294">Jetts Fitness Paraparaumu</option><option value="186">Jetts Fitness Petone</option><option value="6588">Jetts Fitness Porirua</option><option value="4456">Jetts Fitness Remuera</option><option value="2737">Jetts Fitness Royal Oak</option><option value="4017">Jetts Fitness St Johns</option><option value="2944">Jetts Fitness St Lukes</option><option value="2854">Jetts Fitness Takapuna</option><option value="7653">Jetts Fitness Taupo</option><option value="7896">Jetts Fitness Tauranga</option><option value="7897">Jetts Fitness Te Awamutu</option><option value="1158">Jetts Fitness TEST</option><option value="3598">Jetts Fitness Upper Hutt</option><option value="10694">Jetts Fitness Wanganui</option><option value="3905">Jetts Fitness Wellington</option><option value="8575">Jetts Fitness Whakatane</option><option value="2744">Jetts Fitness Whangaparaoa</option><option value="9255">Jetts Fitness Whangarei</option>
+						</select>
+						<select name="Title" id="userInput" class="form-control">
+							<option value="placeHolder"> Title </option>
+							<option value="mr">Mr</option>
+							<option value="mrs">Mrs</option>
+							<option value="ms">Ms</option>
+							<option value="miss">Miss</option>
+							<option value="dr">Dr</option>
+						</select>
+						<input type="text" id="userInput" placeHolder="First Name" class="form-control">
+						<input type="text" id="userInput" placeHolder="Last Name" class="form-control">
+						<input type="email" id = "userInput" "name="email" placeholder="Email" class="form-control">
+						<input type="password" id = "userInput" placeholder="Password" class="form-control">
+						<input type="password" id = "userInput" placeholder="Confirm Password" class="form-control">
+						<select name="Sex" id="userInput" class="form-control">
+							<option value="placeHolder">Sex</option>
+							<option value="mr">Male</option>
+							<option value="mrs">Female</option>
+							<option value="ms">Other</option>
+						</select>
+						<input type="date" id="userInput" class="form-control">
+						<input type="number" id="userInput" placeholder="Mobile Number" class="form-control">
+						<input type="number" id="userInput" placeholder="Alternative Phone Number" class="form-control" >
+						<input type="text" id="userInput" placeholder="Emergency Contact Person" class="form-control">
+						<input type="number" id="userInput" placeholder="Emergency Contact Number" class="form-control" >
+						<input type="text" id="userInput" placeHolder="Drivers License" class="form-control">
+						<input type="text" id="userInput" placeHolder="Student ID" class="form-control">
+						<input type="text" id="userInput" placeHolder="Address" class="form-control" required=true>
+						
+						<input type="submit" name="register" class="btn" value="Register" >
+					</div>
+                </form>
+				<div class="register-help">
+                    <a href="#" data-target ="#loginButtonModal" data-toggle="modal">Login</a>
+                </div>
+            </div>
+		    </div>
+		</div>
+	</div>
+		
     <!-- forgotten password modal-->
     <div class="modal fade" id="forgottenPassword">
         <div class="modal-dialog">
@@ -64,15 +118,14 @@
                 <p>We will send you instructions to reset your password via E-Mail</p>
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Username">
-						<h> </h>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address">
-						<input type="submit" name="login" class="btn" value="Login">
+                        <input type="email" id="userInput" class="form-control" id="exampleInputEmail1" placeholder="Email address">
+						<input type="submit" id="userInput" name="login" class="btn" value="Login">
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 
 </div>
 	
