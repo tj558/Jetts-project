@@ -2,8 +2,8 @@
 
 <html>
 <head>
-    <style>
-.btn {
+<style>
+.btn{
     color: rgb(255,255,255);
     background-color: rgb(222,0,39);
 
@@ -11,11 +11,15 @@
 #userInput{
     margin-bottom: 5px;
 }
+#navbarBtns{
+	float: right;
+}
 </style>
     <title>Jetts New Zealand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Users/KhalidsMac/Jetts Fitness Internship/Jetts-project/css/jettsStyling.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="/Users/KhalidsMac/Jetts Fitness Internship/Jetts-project/javascript/formvalidation.js"></script>
@@ -23,10 +27,19 @@
 
 <body>
 <div class="container-fluid">
-	<!-- buttons-->
-    <button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Login</button>
-	<button data-toggle="modal" data-target="#registerButtonModal" class="btn" >Register</button>
-	
+	<p>test test test</p>
+	<!-- navigation bar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-inner">
+				<a class="navbar-brand" href="#">Jetts Fitness</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="pull-right" id="navbarBtns"><button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Login</button></li>
+				<li class="pull-right" id="navbarBtns"><button data-toggle="modal" data-target="#registerButtonModal" class="btn" >Register</button></li>
+			</ul>
+		</div>
+	</nav>
 	
     <!-- login modal-->
     <div class="modal fade" id="loginButtonModal" >
@@ -62,7 +75,7 @@
                     <h2>Register</h2>
                 </div>
             <div class="modal-body">
-				<form>
+				<form id="regForm">
 					<div class="form-group" id="registerFormGroup">
 						<select class="form-control" id="userInput" name="Club">
 							<option value="placeHolder"> Select a club </option><option value="1092">Jetts Fitness Albany</option><option value="4451">Jetts Fitness Auckland Airport</option><option value="2671">Jetts Fitness Auckland CBD</option><option value="7651">Jetts Fitness Bethlehem</option><option value="2631">Jetts Fitness Birkenhead</option><option value="5264">Jetts Fitness Botany</option><option value="6956">Jetts Fitness Botany Junction</option><option value="2228">Jetts Fitness Browns Bay</option><option value="9842">Jetts Fitness Chartwell</option><option value="5616">Jetts Fitness Dunedin</option><option value="3231">Jetts Fitness Eden Terrace</option><option value="8574">Jetts Fitness Gisborne</option><option value="2501">Jetts Fitness Glenfield</option><option value="2857">Jetts Fitness Grey Lynn</option><option value="9256">Jetts Fitness Hamilton East</option><option value="46214">Jetts Fitness Hamilton, The Base</option><option value="9840">Jetts Fitness Hastings</option><option value="6957">Jetts Fitness Henderson</option><option value="5620">Jetts Fitness Highbrook</option><option value="3608">Jetts Fitness Highland Park</option><option value="3904">Jetts Fitness Howick</option><option value="5268">Jetts Fitness Johnsonville</option><option value="3379">Jetts Fitness Lower Hutt</option><option value="2207">Jetts Fitness Mairangi Bay</option><option value="7292">Jetts Fitness Manukau</option><option value="6587">Jetts Fitness Manurewa</option><option value="63768">Jetts Fitness Millwater</option><option value="4016">Jetts Fitness Miramar</option><option value="187">Jetts Fitness Mt Roskill</option><option value="5046">Jetts Fitness Mt Wellington</option><option value="10159">Jetts Fitness Napier</option><option value="3229">Jetts Fitness New Lynn</option><option value="10154">Jetts Fitness New Plymouth</option><option value="5047">Jetts Fitness Newtown</option><option value="10697">Jetts Fitness Northlands</option><option value="131594">Jetts Fitness Otahuhu</option><option value="10696">Jetts Fitness Otara</option><option value="2943">Jetts Fitness Palmerston North</option><option value="3376">Jetts Fitness Papakura</option><option value="7294">Jetts Fitness Paraparaumu</option><option value="186">Jetts Fitness Petone</option><option value="6588">Jetts Fitness Porirua</option><option value="4456">Jetts Fitness Remuera</option><option value="2737">Jetts Fitness Royal Oak</option><option value="4017">Jetts Fitness St Johns</option><option value="2944">Jetts Fitness St Lukes</option><option value="2854">Jetts Fitness Takapuna</option><option value="7653">Jetts Fitness Taupo</option><option value="7896">Jetts Fitness Tauranga</option><option value="7897">Jetts Fitness Te Awamutu</option><option value="1158">Jetts Fitness TEST</option><option value="3598">Jetts Fitness Upper Hutt</option><option value="10694">Jetts Fitness Wanganui</option><option value="3905">Jetts Fitness Wellington</option><option value="8575">Jetts Fitness Whakatane</option><option value="2744">Jetts Fitness Whangaparaoa</option><option value="9255">Jetts Fitness Whangarei</option>
@@ -94,6 +107,14 @@
 						<input type="text" id="userInput" placeHolder="Drivers License" class="form-control">
 						<input type="text" id="userInput" placeHolder="Student ID" class="form-control">
 						<input type="text" id="userInput" placeHolder="Address" class="form-control" required=true>
+						<input type="text" id="userInput" placeHolder="Suburb" class="form-control" required=true>
+						<input type="text" id="userInput" placeHolder="City" class="form-control" required=true>
+						<input type="number" id="userInput" placeHolder="Post Code" class="form-control" required=true>
+						<select name="gymExperience" id="userInput" class="form-control">
+							<option value="placeHolder">Do you have any gym experience?</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
 						
 						<input type="submit" name="register" class="btn" value="Register" >
 					</div>
@@ -118,7 +139,7 @@
                 <p>We will send you instructions to reset your password via E-Mail</p>
                 <form>
                     <div class="form-group">
-                        <input type="email" id="userInput" class="form-control" id="exampleInputEmail1" placeholder="Email address">
+                        <input type="email" id="userInput" class="form-control" id="exampleInputEmail1" placeholder="Email address" required="true">
 						<input type="submit" id="userInput" name="login" class="btn" value="Login">
                     </div>
                 </form>
