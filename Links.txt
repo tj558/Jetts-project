@@ -1,1 +1,2 @@
 Emad - Mean Stack Tutorial - https://www.youtube.com/watch?v=Jh0er2pRcq8
+Philip - Scotch Passport tutorial with mongoDB https://scotch.io/tutorials/easy-node-authentication-setup-and-local
