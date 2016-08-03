@@ -3,10 +3,27 @@
 <html>
 <head>
 <style>
+
+.circlebtn {
+    width:100px;
+    height: 100px;
+    border-radius:100%;
+    background-color:grey;
+	border-width:0px;
+	margin-top:67px;
+	margin-right:50px;
+	position:relative; z-index:40;
+}
+
 .btn {
      color: rgb(255,255,255);
     background-color: rgb(222,0,39);
+<<<<<<< HEAD:index.html
 }    
+=======
+
+}
+>>>>>>> origin/master:index2.html
 
 .form-control{
     margin-bottom: 5px;
@@ -17,190 +34,140 @@
 .fa{
     width: 10px;
     text-align: center;
+<<<<<<< HEAD:index.html
 
     
+=======
+>>>>>>> origin/master:index2.html
 }
+#emailalert{
+   padding: 0px 10px !important; 
+   margin-top: -10px !important;
+   margin-bottom:15px;
+}
+
 </style>
     <title>Jetts New Zealand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/Users/KhalidsMac/Jetts Fitness Internship/Jetts-project/css/jettsStyling.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-   <!-- <script src="/Users/KhalidsMac/Jetts Fitness Internship/Jetts-project/javascript/formvalidation.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"  integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <!--validation scripts-->
+    
+	
+<!--populate script-->	
 <script>
+function hideall(){
+	$('#divregester').hide();
+	
+}
+
+function regester(){
+	hideall();
+	$('#divbanner').show();
+	$('#divregester').fadeIn();
+}
+
+function hidehomepage(){
+	$('#divhomepage').hide();
+	$('#divbanner').show();
+	$('#divregester').show();
+	$('#1').css({'background':'red'});
+	
+}
+
+function PopulateFunction() {
+    document.getElementById("idf").value = "fred";
+	document.getElementById("idl").value = "jones";
+	document.getElementById("ide").value = "random@gmail.com";
+	document.getElementById("idp1").value = "pass123";
+	document.getElementById("idp2").value = "pass123";
+}
+
+function changeTitle(data){
+	document.getElementById("TitleHeading").innerHTML=data;
+}
+
+function changeForm(data){
+	document.getElementById("signupform").innerHTML=data;
+}
+
+
+</script>
+	
+<!--validation scripts-->
+<script>
+
 $(document).ready(function(){
+$('#populate').hide();
+
+	$('#signupform').on('submit',function(event){
+		event.preventDefault();
+		var formdata=$(this).serializeArray();
+		
+	
+		//ajax post request way
+		
+		$.post("signupsubmit",formdata, function(data){
+			 
+			 if(data!='error'){
+				changeTitle("Medical Form");
+				$('#populate').hide();
+				changeForm(data);
+				//
+				$('#2').css({'background':'red'});
+				
+			 }else{
+				$('#emailalert').show();
+				$('#ide').focus();
+			 }
+		
+		});
+		
+		
+		
+	
+	
+	});
+	
+	
+	
 
 
-    $('#registerButtonModal').on('submit', function(e){
-        e.preventDefault();
-        
-        var f=document.getElementById('idf');
-        var l=document.getElementById('idl');
-        var u=document.getElementById('idu');
-        var e=document.getElementById('ide');
-        var p1=document.getElementById('idp1');
-        var p2=document.getElementById('idp2');
-
-        var errorBorder=document.getElementById('errorBorder');
-        var errorBox=document.getElementById('errorBox');
-        
-        
-function validateText(last){
-    var re = /^[a-zA-Z ]{3,20}$/;
-    return re.test(last);
-}
-
-function validateEmail(email){
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
-function alphanumeric(pass){
-    //var re = /^[a-zA-Z ]{3,20}$/;//make alphanumeric   var re = /^\w+$/
-    var re = /^\w+$/
-    return re.test(pass);
-}
-
-function validatePasswordsMatch(pass1,pass2){
-    if(pass1===pass2){
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-var fvalid=validateText(f.value);
-var lvalid=validateText(l.value);
-var evalid=validateEmail(e.value);
-var p1valid=alphanumeric(p1.value);
-var p1p2Match=validatePasswordsMatch(p1.value,p2.value);
-
-function validateForm(){
-    var errors=false;
-    
-    if(!fvalid){
-        //errorMessage+="<br>"+"first-name is invalid";
-        //$addon.addClass('danger')
-        document.getElementById("firstNameIconID").style.color="red";
-        //document.getElementById("idf").addClass="danger";
-        f.setAttribute('value',"First name is invalid");
-        errors=true;
-    }
-    if(!lvalid){
-        //errorMessage+="<br>"+"last-name is invalid";
-        document.getElementById("lastNameIconID").style.color="red";
-        l.setAttribute('value', "Last name is invalid");
-        errors=true;
-    }
-    if(!evalid){
-        document.getElementById("emailIconID").style.color="red";
-        e.setAttribute('placeholder', "Email is invalid");
-
-        //errorMessage+="<br>"+"email is invalid";
-        errors=true;
-    }
-    if(!p1valid){
-        document.getElementById("passwordIconID").style.color="red";
-        p1.setAttribute('placeholder', "Password is invalid");
-        //errorMessage+="<br>"+"password is invalid";
-        errors=true;
-    }
-    if(!p1p2Match){
-        document.getElementById("password2IconID").style.color="red";
-        p2.setAttribute('value',"Passwords do not match");
-        errorMessage+="<br>"+"passwords do not match";
-        errors=true;
-    }
-    
-    return errors;
-}
-
-
-
-        var ERRORS=validateForm();
-        
-        if(ERRORS==false){
-            document.forms.chicken.submit();
-            var welcomeMessage="Welcome to the Jetts family "+f.value+" "+l.value +"!";
-            alert(welcomeMessage);
-        } else {
-            document.getElementById("errorBox").innerHTML=errorMessage;
-        }
-        
-        
-        });
-        
-    
-    });
+});
 </script>
 </head>
 
 <body>
 <div class="container-fluid">
-    <p>test test test</p>
-    <!-- navigation bar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-inner">
-                <a class="navbar-brand" href="#">Jetts Fitness</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="pull-right" id="navbarBtns"><button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Login</button></li>
-                <li class="pull-right" id="navbarBtns"><button data-toggle="modal" data-target="#registerButtonModal" class="btn" >Register</button></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- login modal-->
-    <div class="modal fade" id="loginButtonModal" >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                    <h2>Login</h2>
-                </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group" id="loginFormGroup">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id = "userInput" "name="email" placeholder="Email" class="form-control" required="true">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" id = "userInput" placeholder="Password" class="form-control span2" required="true">
-                            </div>
-                        </div>
-                        <input type="submit" name="login" class="btn" value="Login" >
-                    </div>
-                </form>
-                <div class="login-help">
-                    <a href="#">Register</a>
-                    <a href="#" data-target ="#forgottenPassword" data-toggle="modal">Forgot Password</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-        
-     <!-- register user modal-->
-    <div class="modal fade" id="registerButtonModal" >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                    <h2>Register</h2>
-                </div>
-            <div class="modal-body">
-                <form name="chicken">
+
+    <!-- Home page -->
+	<div id="divhomepage" class="text-center " style="position:fixed;margin-left:75px"  > 
+		<img src="jettswelcome.png" style="width:100%;height:450px; margin-bottom: 20px; margin-top: 20px;">
+		<button data-toggle="modal" data-target="#loginButtonModal" class="btn" style="width:125px;" >Login</button>
+		<button onclick="hidehomepage()" class="btn" style="width:125px;" >Register</button>
+		<button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>	
+	</div>
+	
+	
+	<!-- banner that does not scroll -->
+	<div id="divbanner" class="container" style="background-color:black;margin-left:-15px;position:fixed;width:100%;height:150px;z-index:20 " hidden>
+		
+		<img src="line.png" style="margin-top:120px;margin-bottom:0px;width:500px;height:5px;position:fixed;z-index:20" >
+		
+		<button id="1" class="circlebtn" onclick="regester()"  >Register</button>
+		<button id="2" class="circlebtn" onclick="medical()" >Medical</button>
+		<button id="3" class="circlebtn" onclick="pricing()" >Pricing</button>
+		<button id="4" class="circlebtn" onclick="booking()" >Booking</button>
+	</div>
+	
+	
+	<!-- regester div -->
+	<div id="divregester" style="margin-top: 170px;" hidden > <!-- initially hidden -->
+		<h2 id="TitleHeading">Register</h2> <button type="button" id="populate" onclick="PopulateFunction()" >POPULATE DATA</button>
+			<hr>
+				<form id="signupform" >
                     <div class="form-group" id="registerFormGroup">
                         <div class="form-group">
                             <div class="input-group">
@@ -223,11 +190,11 @@ function validateForm(){
                                 </select>
                             </div>
                         </div>
-
+						<hr>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user" id="firstNameIconID"></i></span>
-                                <input type="text" id="idf" placeHolder="First Name" class="form-control">
+                                <input type="text" id="idf" placeHolder="First Name" class="form-control" name="name">
                             </div>
                         </div>
                         <div class="form-group">
@@ -239,13 +206,16 @@ function validateForm(){
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope" id="emailIconID"></i></span>
-                                <input type="email" id = "ide" placeholder="Email" class="form-control" >
+                                <input type="email" id = "ide" placeholder="Email" class="form-control" name="email" >
                             </div>
                         </div>
+						<div id="emailalert" class="alert alert-danger" hidden>
+						This email is already taken
+						</div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock" id="passwordIconID"></i></span>
-                                <input type="password" id = "idp1" placeholder="Password" class="form-control">
+                                <input type="password" id = "idp1" placeholder="Password" class="form-control" name="password">
                             </div>
                         </div>                      
                         <div class="form-group">
@@ -267,11 +237,11 @@ function validateForm(){
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa  fa-calendar"></i></span>
+                                <span class="input-group-addon"><i class="fa  fa-calendar" id="DOBIconID"></i></span>
                                 <input type="date" id="idd" class="form-control span2" placeholder="Date of Birth">
                             </div>
                         </div>
-
+						<hr>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
@@ -295,7 +265,8 @@ function validateForm(){
                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                     <input type="number" id="userInput" placeholder="Emergency Contact Number" class="form-control span2">
                             </div>
-                        </div>              
+                        </div>  
+						<hr>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-car"></i></span>
@@ -332,7 +303,8 @@ function validateForm(){
                                 <span class="input-group-addon"><i class="fa  fa-map-marker"></i></span>
                                     <input type="number" id="userInput" placeHolder="Post Code" class="form-control span2">
                             </div>
-                        </div>              
+                        </div>      
+						<hr>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa  fa-question"></i></span>
@@ -362,63 +334,47 @@ function validateForm(){
                                 <input type="text" id="userInput" placeHolder="Referal Member" class="form-control span2">
                             </div>
                         </div>
+						<hr>
                         <div class="form-group">
                             <div class="input-group">
-                                <p>Communications</p>
-                                <div class="checkbox"><label><input type="checkbox">I do not wish to receive any commercial emails or SMS which may be sent by Jetts from time to time, the exception being for any emails or SMS that relate directly to my membership.</label>
-                            </div>
+                                <p><strong><i>Communications</i></strong></p>
+                                <div class="checkbox"><label><input type="checkbox">I do not wish to receive any commercial emails or SMS which may be sent by Jetts from time to time, the exception being for any emails or SMS that relate directly to my membership.</label></div>
+							</div>
                         </div>
-                        
+						
                         <div class="form-group">
                             <div class="input-group">
-                                <p>Terms and conditions</p>
+                                <p><strong><i>Terms and conditions</i></strong></p>
                                 <div class="checkbox"><label><input type="checkbox">I agree to the terms and conditions as set out by Jetts Fitness New Zealand</label>
-                                <div><a href="#">You may review the terms and conditions here</a></div>
-                            </div>
-                        </div>
+									<div><a href="#">You may review the terms and conditions here</a></div>
+								</div>
+							</div>
+						</div>
                             
                         <div class="form-group">
                             <div class="input-group">
-                                <p>Photography Release</p>
-                                <div class="checkbox"><label><input type="checkbox">I agree to the Jetts Fitness Photography Release</label>
-                            </div>
-                        </div>
+                                <p><strong><i>Photography Release</i></strong></p>
+                                <div class="checkbox"><label><input type="checkbox">I agree to the Jetts Fitness Photography Release</label></div>
+							</div>
+						<br>
                         <input type="submit" name="register" class="btn" value="Register" >
-                    </div>
+						</div>
+					</div>
+					
                 </form>
-            </div>
-            </div>
-        </div>
-    </div>
-        
-    <!-- forgotten password modal-->
-    <div class="modal fade" id="forgottenPassword">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                <h3>Forgotten Password?</h3>
-            </div>
-            <div class="modal-body">
-                <p>We will send you instructions to reset your password via E-Mail</p>
-                <form>
-                    <div class="form-group">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id = "userInput" "name="email" placeholder="Email" class="form-control" required="true">
-                            </div>
-                        </div>
-                        <input type="submit" id="userInput" name="login" class="btn" value="Login">
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-    </div>
+	</div>
+	
+	
+	
 
+      
+	  
+
+	
+	
+	
+	
+	
 </div>
-    
 </body>
-
 </html>
