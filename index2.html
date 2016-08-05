@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Jetts New Zealand</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"  integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<style>
+
+.circlebtn {
+    width:100px;
+    height: 100px;
+    border-radius:100%;
+    background-color:grey;
+	border-width:0px;
+	margin-top:67px;
+	margin-right:50px;
+	position:relative; z-index:40;
+}
+
+.btn {
+    color: rgb(255,255,255);
+    background-color: rgb(222,0,39);
+}
+
+.form-control{
+    margin-bottom: 5px;
+}
+#navbarBtns{
+    float: right;
+}
+.fa{
+    width: 10px;
+    text-align: center;
+}
+#emailalert{
+   padding: 0px 10px !important; 
+   margin-top: -10px !important;
+   margin-bottom:15px;
+}
+
+</style>
+
+<!--populate script-->	
+<script>
+function hideAll(){
+	$('#divregester').hide();
+	
+}
+
+function register(){
+	hideAll();
+	$('#divbanner').show();
+	$('#divregester').fadeIn();
+}
+
+function hideHomepage(){
+	$('#divhomepage').hide();
+	$('#divbanner').show();
+	$('#divregester').show();
+	$('#1').css({'background':'red'});
+}
+
+function PopulateFunction() {
+    document.getElementById("idf").value = "fred";
+	document.getElementById("idl").value = "jones";
+	document.getElementById("ide").value = "random@gmail.com";
+	document.getElementById("idp1").value = "pass123";
+	document.getElementById("idp2").value = "pass123";
+}
+
+function changeTitle(data){
+	document.getElementById("TitleHeading").innerHTML=data;
+}
+
+function changeForm(data){
+	document.getElementById("signupform").innerHTML=data;
+}
+
+</script>
+	
+<!--validation scripts-->
+<script>
+    $(document).ready(function(){
+    $('#populate').hide();
+        $('#signupform').on('submit',function(event){
+        	event.preventDefault();
+        	var formdata=$(this).serializeArray();
+
+        	//ajax post request way
+
+        	$.post("signupsubmit",formdata, function(data){
+        		if(data!='error'){
+        			changeTitle("Medical Form");
+        			$('#populate').hide();
+        			changeForm(data);
+        			$('#2').css({'background':'red'});
+        		}else{
+        			$('#emailalert').show();
+        			$('#ide').focus();
+        		} 
+        	});
+        });
+    }
+</script>
+</head>
+
+<body>
+<div class="container-fluid">
+
+    <!-- Home page -->
+    <div id="divhomepage" class="text-center " style="position:fixed;margin-left:75px"  > 
+    	<img src="graphics/jettswelcome.png" style="width:100%;height:450px; margin-bottom: 20px; margin-top: 20px;">
+    	<button data-toggle="modal" data-target="#loginButtonModal" class="btn" style="width:125px;" >Login</button>
+    	<button onclick="hideHomepage()" class="btn" style="width:125px;" >Register</button>		<button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>	
+    </div>
+    	
+    	
+    	<!-- banner that does not scroll -->
+    <div id="divbanner" class="container" style="background-color:black;margin-left:-15px;position:fixed;width:100%;height:150px;z-index:20 " hidden>	
+        <img src="graphics/line.png" style="margin-top:120px;margin-bottom:0px;width:500px;height:5px;position:fixed;z-index:20" >	
+    	<button id="1" class="circlebtn" onclick="regester()"  >Register</button>
+    	<button id="2" class="circlebtn" onclick="medical()" >Medical</button>
+    	<button id="3" class="circlebtn" onclick="pricing()" >Pricing</button>
+    	<button id="4" class="circlebtn" onclick="booking()" >Booking</button>
+    </div>
+	
+	
+<!-- regester div -->
+<div id="divregester" style="margin-top: 170px;" hidden > <!-- initially hidden -->
+	<h2 id="TitleHeading">Register</h2> <button type="button" id="populate" onclick="PopulateFunction()" >POPULATE DATA</button> 
+		<form id="signupform" >
+            <div class="form-group" id="registerFormGroup">
+                <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-map-marker "></i></span>
+                            <select class="form-control span2" id="userInput" name="Club" required="true">
+                            <option value="placeHolder"> Select a club </option><option value="1092">Jetts Fitness Albany</option><option value="4451">Jetts Fitness Auckland Airport</option><option value="2671">Jetts Fitness Auckland CBD</option><option value="7651">Jetts Fitness Bethlehem</option><option value="2631">Jetts Fitness Birkenhead</option><option value="5264">Jetts Fitness Botany</option><option value="6956">Jetts Fitness Botany Junction</option><option value="2228">Jetts Fitness Browns Bay</option><option value="9842">Jetts Fitness Chartwell</option><option value="5616">Jetts Fitness Dunedin</option><option value="3231">Jetts Fitness Eden Terrace</option><option value="8574">Jetts Fitness Gisborne</option><option value="2501">Jetts Fitness Glenfield</option><option value="2857">Jetts Fitness Grey Lynn</option><option value="9256">Jetts Fitness Hamilton East</option><option value="46214">Jetts Fitness Hamilton, The Base</option><option value="9840">Jetts Fitness Hastings</option><option value="6957">Jetts Fitness Henderson</option><option value="5620">Jetts Fitness Highbrook</option><option value="3608">Jetts Fitness Highland Park</option><option value="3904">Jetts Fitness Howick</option><option value="5268">Jetts Fitness Johnsonville</option><option value="3379">Jetts Fitness Lower Hutt</option><option value="2207">Jetts Fitness Mairangi Bay</option><option value="7292">Jetts Fitness Manukau</option><option value="6587">Jetts Fitness Manurewa</option><option value="63768">Jetts Fitness Millwater</option><option value="4016">Jetts Fitness Miramar</option><option value="187">Jetts Fitness Mt Roskill</option><option value="5046">Jetts Fitness Mt Wellington</option><option value="10159">Jetts Fitness Napier</option><option value="3229">Jetts Fitness New Lynn</option><option value="10154">Jetts Fitness New Plymouth</option><option value="5047">Jetts Fitness Newtown</option><option value="10697">Jetts Fitness Northlands</option><option value="131594">Jetts Fitness Otahuhu</option><option value="10696">Jetts Fitness Otara</option><option value="2943">Jetts Fitness Palmerston North</option><option value="3376">Jetts Fitness Papakura</option><option value="7294">Jetts Fitness Paraparaumu</option><option value="186">Jetts Fitness Petone</option><option value="6588">Jetts Fitness Porirua</option><option value="4456">Jetts Fitness Remuera</option><option value="2737">Jetts Fitness Royal Oak</option><option value="4017">Jetts Fitness St Johns</option><option value="2944">Jetts Fitness St Lukes</option><option value="2854">Jetts Fitness Takapuna</option><option value="7653">Jetts Fitness Taupo</option><option value="7896">Jetts Fitness Tauranga</option><option value="7897">Jetts Fitness Te Awamutu</option><option value="3598">Jetts Fitness Upper Hutt</option><option value="10694">Jetts Fitness Wanganui</option><option value="3905">Jetts Fitness Wellington</option><option value="8575">Jetts Fitness Whakatane</option><option value="2744">Jetts Fitness Whangaparaoa</option><option value="9255">Jetts Fitness Whangarei</option>
+                            </select>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user "></i></span>
+                            <select name="Title" id="userInput" class="form-control span2" required="true">
+                                <option value="placeHolder"> Title </option>
+                                <option value="mr">Mr</option>
+                                <option value="mrs">Mrs</option>
+                                <option value="ms">Ms</option>
+                                <option value="miss">Miss</option>
+                                <option value="dr">Dr</option>
+                            </select>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user" id="firstNameIconID"></i></span>
+                        <input type="text" id="idf" placeHolder="First Name" class="form-control" name="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user " id="lastNameIconID"></i></span>
+                        <input type="text" id="idl" placeHolder="Last Name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope" id="emailIconID"></i></span>
+                        <input type="email" id = "ide" placeholder="Email" class="form-control" name="email" >
+                    </div>
+                </div>
+                <div id="emailalert" class="alert alert-danger" hidden>
+                   This email is already taken
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock" id="passwordIconID"></i></span>
+                        <input type="password" id = "idp1" placeholder="Password" class="form-control" name="password">
+                    </div>
+                </div>                      
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock" id="password2IconID"></i></span>
+                        <input type="password" id = "idp2" placeholder="Confirm Password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-venus-mars fw"></i></span>
+                            <select name="Sex" id="userInput" class="form-control span2">
+                            <option value="placeHolder">Sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-calendar" id="DOBIconID"></i></span>
+                        <input type="date" id="idd" class="form-control span2" placeholder="Date of Birth">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                        <input type="number" id="userInput" placeholder="Mobile Number" class="form-control span2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                        <input type="number" id="userInput" placeholder="Alternative Mobile Number" class="form-control span2">
+                    </div>
+                </div>                      
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-ambulance"></i></span>
+                        <input type="text" id="userInput" placeholder="Emergency Contact Person" class="form-control span2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="number" id="userInput" placeholder="Emergency Contact Number" class="form-control span2">
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                        <input type="text" id="userInput" placeHolder="Drivers License" class="form-control span2">
+                    </div>
+                </div>                  
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-graduation-cap"></i></span>
+                        <input type="text" id="userInput" placeHolder="Student ID" class="form-control span2">
+                    </div>
+                </div>              
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-map-marker"></i></span>
+                        <input type="text" id="userInput" placeHolder="Address" class="form-control span2">
+                    </div>
+                </div>                  
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-map-marker"></i></span>
+                        <input type="text" id="userInput" placeHolder="Suburb" class="form-control span2">
+                    </div>
+                </div>                      
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-map-marker"></i></span>
+                        <input type="text" id="userInput" placeHolder="City" class="form-control span2">
+                    </div>
+                </div>              
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-map-marker"></i></span>
+                        <input type="number" id="userInput" placeHolder="Post Code" class="form-control span2">
+                    </div>
+                </div>      
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-question"></i></span>
+                        <select name="gymExperience" id="userInput" class="form-control span2">
+                            <option value="placeHolder">Do you have any gym experience?</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>                  
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa  fa-play"></i></span>
+                        <select name="exerciseGoal" id="userInput" class="form-control">
+                            <option value="placeHolder">What is your exercise goal?</option>
+                            <option value="General">Improve general health and fitness</option>
+                            <option value="WeightLoss">Weight loss</option>
+                            <option value="IncMuscleTo">Increase muscle tone</option>
+                            <option value="IncMuscleDev">Increase muscle development</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user "></i></span>
+                        <input type="text" id="userInput" placeHolder="Referal Member" class="form-control span2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <p><strong><i>Communications</i></strong></p>
+                        <div class="checkbox"><label><input type="checkbox">I do not wish to receive any commercial emails or SMS which may be sent by Jetts from time to time, the exception being for any emails or SMS that relate directly to my membership.</label></div>
+					</div>
+                </div>	
+                <div class="form-group">
+                    <div class="input-group">
+                       <p><strong><i>Terms and conditions</i></strong></p>
+                        <div class="checkbox"><label><input type="checkbox">I agree to the terms and conditions as set out by Jetts Fitness New Zealand</label>
+						<div><a href="#">You may review the terms and conditions here</a></div>
+						</div>
+						</div>
+				</div>s   
+                <div class="form-group">
+                    <div class="input-group">
+                        <p><strong><i>Photography Release</i></strong></p>
+                        <div class="checkbox"><label><input type="checkbox">I agree to the Jetts Fitness Photography Release</label></div>
+					</div>
+					<br>
+                    <input type="submit" name="register" class="btn" value="Register" >
+				</div>
+			</div>		
+        </form>
+	</div>
+</div>
+</body>
+</html>
