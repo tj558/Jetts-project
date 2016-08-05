@@ -9,6 +9,11 @@ var club = new mongoose.Schema({
 
 });
 
+var paymentDetails = new mongoose.Schema({
+	paymentFrequencyInDays: number, //how often a payment is done between days etc. 12 = days ago a payment was made
+	prepaidDateStart: date, //date that prepay starts
+	prepaidDateEnd: date, //date that prepay ends
+});
 var address = new mongoose.Schema({
 	streetNumber: String,
 	streetName: String, 
@@ -18,6 +23,12 @@ var address = new mongoose.Schema({
 	country: String,
 });
 
+var membership = new mongoose.Schema({
+	id: number,
+	name: String, 
+	rate: String,
+	discount: String,
+});
 var user = new mongoose.Schema({
 	title: String,
 	firstName: String,
