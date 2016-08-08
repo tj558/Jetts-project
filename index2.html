@@ -48,20 +48,20 @@
 <!--populate script-->	
 <script>
 function hideAll(){
-	$('#divregester').hide();
+	$('#divregister').hide();
 	
 }
 
 function register(){
 	hideAll();
 	$('#divbanner').show();
-	$('#divregester').fadeIn();
+	$('#divregister').fadeIn();
 }
 
 function hideHomepage(){
 	$('#divhomepage').hide();
 	$('#divbanner').show();
-	$('#divregester').show();
+	$('#divregister').show();
 	$('#1').css({'background':'red'});
 }
 
@@ -115,23 +115,24 @@ function changeForm(data){
     <!-- Home page -->
     <div id="divhomepage" class="text-center " style="position:fixed;margin-left:75px"  > 
     	<img src="graphics/jettswelcome.png" style="width:100%;height:450px; margin-bottom: 20px; margin-top: 20px;">
-    	<button data-toggle="modal" data-target="#loginButtonModal" class="btn" style="width:125px;" >Login</button>
-    	<button onclick="hideHomepage()" class="btn" style="width:125px;" >Register</button>		<button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>	
+    	<button onclick ="hudeHomepage()" data-toggle="modal"  class="btn" style="width:125px;" >Login</button>
+    	<button onclick="hideHomepage()" class="btn" style="width:125px;" >Register</button>		
+        <button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>	
     </div>
     	
     	
     	<!-- banner that does not scroll -->
     <div id="divbanner" class="container" style="background-color:black;margin-left:-15px;position:fixed;width:100%;height:150px;z-index:20 " hidden>	
         <img src="graphics/line.png" style="margin-top:120px;margin-bottom:0px;width:500px;height:5px;position:fixed;z-index:20" >	
-    	<button id="1" class="circlebtn" onclick="regester()"  >Register</button>
+    	<button id="1" class="circlebtn" onclick="register()"  >Register</button>
     	<button id="2" class="circlebtn" onclick="medical()" >Medical</button>
     	<button id="3" class="circlebtn" onclick="pricing()" >Pricing</button>
     	<button id="4" class="circlebtn" onclick="booking()" >Booking</button>
     </div>
 	
 	
-<!-- regester div -->
-<div id="divregester" style="margin-top: 170px;" hidden > <!-- initially hidden -->
+<!-- register div -->
+<div id="divregister" style="margin-top: 170px;" hidden > <!-- initially hidden -->
 	<h2 id="TitleHeading">Register</h2> <button type="button" id="populate" onclick="PopulateFunction()" >POPULATE DATA</button> 
 		<form id="signupform" >
             <div class="form-group" id="registerFormGroup">
@@ -307,7 +308,7 @@ function changeForm(data){
 						<div><a href="#">You may review the terms and conditions here</a></div>
 						</div>
 						</div>
-				</div>s   
+				</div>
                 <div class="form-group">
                     <div class="input-group">
                         <p><strong><i>Photography Release</i></strong></p>

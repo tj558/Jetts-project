@@ -33,8 +33,9 @@ app.post('/signupsubmit', function(req, res){
 	
 	var email=req.body.email;
 	
-	if(email=database){
+	if(!email!=database){
 		res.sendfile('medicalForm.html');
+		console.log('successtest');
 	}else{
 		res.send("error");
 	}
