@@ -1,19 +1,6 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var club = new mongoose.Schema({
-	address: Address,
-	clubName: String,
-	phone: String, //"+" 0
-	manager: user,
-	memberCount: Integer, //someone test/check data type
-
-});
-
-var paymentDetails = new mongoose.Schema({
-	paymentFrequencyInDays: number, //how often a payment is done between days etc. 12 = days ago a payment was made
-	prepaidDateStart: date, //date that prepay starts
-	prepaidDateEnd: date, //date that prepay ends
-});
 var address = new mongoose.Schema({
 	streetNumber: String,
 	streetName: String, 
@@ -24,11 +11,12 @@ var address = new mongoose.Schema({
 });
 
 var membership = new mongoose.Schema({
-	id: number,
+	id: Number,
 	name: String, 
 	rate: String,
 	discount: String,
 });
+
 var user = new mongoose.Schema({
 	title: String,
 	firstName: String,
@@ -43,14 +31,28 @@ var user = new mongoose.Schema({
 	driverLicenseNumber: String,
 	emergencyContactName: String,
 	emergencyContactNumber: String,
-	userMiscInfro: userMisc, // seperate schema to be created
-	userHealth: userHealth,
-	parq: boolean, //0 = not done 1 = done
-	welcomeSession: boolean, //0 = not done 1 = done
+	//userMiscInfro: userMisc, // seperate schema to be created
+	//userHealth: userHealth,
+	parq: Boolean, //0 = not done 1 = done
+	welcomeSession: Boolean, //0 = not done 1 = done
 	membershipType: membership,
 	cardNumber: String, //unique key
 	photo: String, //cardNumber_timeUploaded.jpg or .png
 
+});
+var club = new mongoose.Schema({
+	address: address,
+	clubName: String,
+	phone: String, //"+" 0
+	manager: user,
+	memberCount: Number, //someone test/check data type
+
+});
+
+var paymentDetails = new mongoose.Schema({
+	paymentFrequencyInDays: Number, //how often a payment is done between days etc. 12 = days ago a payment was made
+	prepaidDateStart: Date, //date that prepay starts
+	prepaidDateEnd: Date, //date that prepay ends
 });
 
 // Create user shcema for mongo
