@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html class="full" lang="en">
 <head>
     <title>Jetts New Zealand</title>
     <meta charset="utf-8">
@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"  integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="extras.css">
 <style>
 
 .circlebtn {
@@ -110,17 +111,51 @@ function changeForm(data){
 </head>
 
 <body>
-<div class="container-fluid">
 
-    <!-- Home page -->
-    <div id="divhomepage" class="text-center " style="position:fixed;margin-left:75px"  > 
-    	<img src="graphics/jettswelcome.png" style="width:100%;height:450px; margin-bottom: 20px; margin-top: 20px;">
-    	<button onclick ="hudeHomepage()" data-toggle="modal"  class="btn" style="width:125px;" >Login</button>
-    	<button onclick="hideHomepage()" class="btn" style="width:125px;" >Register</button>		
-        <button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>	
+ <div class="jumbotron text-center">
+  <form class="form-inline">
+    <img src="graphics/jettswelcome.png" style="width:100%;height:450px; margin-bottom: 20px; margin-top: 20px;">
+    <button onclick ="hudeHomepage()" data-toggle="modal"  class="btn" style="width:125px;" >Login</button>
+    <button onclick="hideHomepage()" class="btn" style="width:125px;" >Register</button>        
+    <button data-toggle="modal" data-target="#loginButtonModal" class="btn" >Member sign-in</button>
+    <!-- What customers say -->
+ <h2>What our customers say</h2>
+<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+    <h4>"jetts is aight"<br><span style="font-style:normal;">Steve, Vice President, Comment Box</span></h4>
     </div>
-    	
-    	
+    <div class="item">
+      <h4>"i like to gym"<br><span style="font-style:normal;">John Doe, Salesman, Rep Inc</span></h4>
+    </div>
+    <div class="item">
+      <h4>"They traineded me good"<br><span style="font-style:normal;">Khalid, English tutor, smoker</span></h4>
+    </div>
+  </div>
+
+
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>  
+  </form>
+</div> 
+
     	<!-- banner that does not scroll -->
     <div id="divbanner" class="container" style="background-color:black;margin-left:-15px;position:fixed;width:100%;height:150px;z-index:20 " hidden>	
         <img src="graphics/line.png" style="margin-top:120px;margin-bottom:0px;width:500px;height:5px;position:fixed;z-index:20" >	
